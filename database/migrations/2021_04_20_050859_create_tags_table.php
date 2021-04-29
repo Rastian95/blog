@@ -17,6 +17,7 @@ class CreateTagsTable extends Migration
             $table->bigIncrements('id_tag');
             $table->string('tag');
             $table->string('slug');
+            $table->string('color');
             $table->timestamps();
         });
     }

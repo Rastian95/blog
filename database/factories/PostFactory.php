@@ -31,7 +31,7 @@ class PostFactory extends Factory
         static $number = 1;
         $users = User::pluck('id')->toArray();
         $categorias = Categoria::pluck('id_categoria')->toArray();
-        $nombre = 'Post '.$number;
+        $nombre = 'Post '.$number++;
         $slug =  Str::slug($nombre);
         return [
             'nombre' => $nombre,

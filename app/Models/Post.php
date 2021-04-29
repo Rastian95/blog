@@ -43,7 +43,7 @@ class Post extends Model
 
     public function categoria()
     {
-        return $this->belongsTo('App\Models\Categoria', 'id_categoria', 'id_post');
+        return $this->belongsTo('App\Models\Categoria', 'id_categoria', 'id_categoria');
     }
 
     public function image()
