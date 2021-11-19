@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 /**
  * App\Models\Categoria
@@ -29,6 +30,27 @@ class Categoria extends Model
 
     protected $table = 'categorias';
     protected $primaryKey = 'id_categoria';
+    protected $fillable = [
+        'nombre',
+        'slug'
+    ];
+
+    public static function boot()
+    {
+        parent::boot();
+        self::creating(function($model){
+            $model->slug = Str::slug($model->nombre);
+        });
+        self::updating(function($model){
+            $model->slug = Str::slug($model->nombre);
+        });
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
 
     public function posts()
     {

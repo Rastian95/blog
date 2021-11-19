@@ -36,6 +36,11 @@ class Post extends Model
     protected $table = 'posts';
     protected $primaryKey = 'id_post';
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function user()
     {
         return $this->belongsTo('App\Models\User', 'id_usuario', 'id');

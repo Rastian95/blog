@@ -12,6 +12,11 @@ class Tag extends Model
     protected $table = 'tags';
     protected $primaryKey = 'id_tag';
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function posts()
     {
         return $this->morphedByMany('App\Models\Post', 'taggable', 'taggables', 'id_tag');
